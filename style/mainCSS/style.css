@@ -48,15 +48,15 @@ html[data-theme='light'] .header {
 }
 
 .header-logo {
-  width: 180px;
+  width: 144px;
   object-fit: contain;
   transition: transform var(--transition-base);
 }
 
 .header-tagline {
   margin: 0;
-  padding: 3px 10px;
-  font-size: 0.7rem;
+  padding: 2px 8px;
+  font-size: 0.5rem;
   font-weight: var(--font-weight-black);
   text-transform: uppercase;
   letter-spacing: 0.5px;
