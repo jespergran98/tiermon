@@ -26,3 +26,7 @@ Blitz.gg league: https://blitz.gg/lol/tierlist
 mobalytics.gg: https://mobalytics.gg/lol/tier-list/top?igRole=TOP
 
 OP.GG: https://op.gg/lol/leaderboards/tier
+
+---
+
+I'm making a tierlist website named "tiermon" (a wordplay on pokémon) that rates Pokémon decks. Create a HTML and CSS file that generates a header, main and footer. The
