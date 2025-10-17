@@ -20,7 +20,7 @@
   --color-text-secondary-dark: #b0b0b0;
   --color-border-dark: #3a3a3a;
 
-/* --- ACCENT RAINBOW PALETTE (BALANCED PASTEL) --- */
+  /* --- ACCENT RAINBOW PALETTE (BALANCED PASTEL) --- */
   /* Cyan */
   --accent-cyan: #a8e6f0;
   /* Green */
@@ -51,6 +51,25 @@
   --pokemon-blue-dark: #222c5f; 
   /* White */
   --pokemon-white: #ffffff;
+  /* Yellow */
+  --pokemon-yellow: #ffde00;
+
+  /* --- GRADIENT COLORS --- */
+  --gradient-primary-start: #a8d8f0;
+  --gradient-primary-end: #a8e6f0;
+  --gradient-accent-start: #f0a8d8;
+  --gradient-accent-end: #d8a8f0;
+  --gradient-warm-start: #f0d0a8;
+  --gradient-warm-end: #f0a8b0;
+  --gradient-cool-start: #a8c8f0;
+  --gradient-cool-end: #a8f0d0;
+
+  /* --- OVERLAY COLORS --- */
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(255, 255, 255, 0.1);
+  --overlay-accent-cyan: rgba(168, 230, 240, 0.1);
+  --overlay-accent-purple: rgba(216, 168, 240, 0.1);
+  --overlay-accent-pink: rgba(240, 168, 216, 0.1);
 
   /* --- SEMANTIC COLORS --- */
   --color-primary: var(--accent-indigo);
@@ -115,6 +134,9 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-glow-cyan: 0 0 20px rgba(168, 230, 240, 0.3);
+  --shadow-glow-purple: 0 0 20px rgba(216, 168, 240, 0.3);
+  --shadow-glow-pink: 0 0 20px rgba(240, 168, 216, 0.3);
 
   /* --- TRANSITIONS --- */
   --transition-fast: 150ms ease-in-out;
@@ -218,10 +240,6 @@ code {
   border-radius: var(--radius-md);
   color: var(--text-color-secondary);
 }
-
-
-
-
 
 /* --- ACCENT UTILITIES --- */
 .text-accent-cyan {
