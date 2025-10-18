@@ -4,21 +4,27 @@
 
 :root {
   /* --- CORE COLORS --- */
-  /* Light Mode */
-  --color-bg-light: #ffffff;
-  --color-surface-light: #f5f5f5;
-  --color-surface-secondary-light: #ebebeb;
-  --color-text-light: #1a1a1a;
-  --color-text-secondary-light: #4a4a4a;
-  --color-border-light: #d4d4d4;
+  /* Light Mode - Enhanced */
+  --color-bg-light: #fafbfc;
+  --color-surface-light: #ffffff;
+  --color-surface-secondary-light: #f0f4f8;
+  --color-surface-tertiary-light: #e1e8ed;
+  --color-text-light: #0d1117;
+  --color-text-secondary-light: #57606a;
+  --color-text-tertiary-light: #8b949e;
+  --color-border-light: #d0d7de;
+  --color-border-secondary-light: #e5eaef;
 
-  /* Dark Mode */
-  --color-bg-dark: #0f0f0f;
-  --color-surface-dark: #1a1a1a;
-  --color-surface-secondary-dark: #252525;
-  --color-text-dark: #f0f0f0;
-  --color-text-secondary-dark: #b0b0b0;
-  --color-border-dark: #3a3a3a;
+  /* Dark Mode - Enhanced */
+  --color-bg-dark: #0a0c10;
+  --color-surface-dark: #161b22;
+  --color-surface-secondary-dark: #1f2937;
+  --color-surface-tertiary-dark: #2d3748;
+  --color-text-dark: #f0f6fc;
+  --color-text-secondary-dark: #c9d1d9;
+  --color-text-tertiary-dark: #8b949e;
+  --color-border-dark: #30363d;
+  --color-border-secondary-dark: #21262d;
 
   /* --- TCG POCKET ACCENT RAINBOW PALETTE (BALANCED PASTEL) --- */
   /* Cyan */
@@ -83,9 +89,12 @@
   --bg-color: var(--color-bg-light);
   --surface-color: var(--color-surface-light);
   --surface-color-secondary: var(--color-surface-secondary-light);
+  --surface-color-tertiary: var(--color-surface-tertiary-light);
   --text-color: var(--color-text-light);
   --text-color-secondary: var(--color-text-secondary-light);
+  --text-color-tertiary: var(--color-text-tertiary-light);
   --border-color: var(--color-border-light);
+  --border-color-secondary: var(--color-border-secondary-light);
 
   /* --- SPACING --- */
   --spacing-xs: 0.25rem;
@@ -149,9 +158,12 @@ html[data-theme='dark'] {
   --bg-color: var(--color-bg-dark);
   --surface-color: var(--color-surface-dark);
   --surface-color-secondary: var(--color-surface-secondary-dark);
+  --surface-color-tertiary: var(--color-surface-tertiary-dark);
   --text-color: var(--color-text-dark);
   --text-color-secondary: var(--color-text-secondary-dark);
+  --text-color-tertiary: var(--color-text-tertiary-dark);
   --border-color: var(--color-border-dark);
+  --border-color-secondary: var(--color-border-secondary-dark);
 }
 
 /* ============================================

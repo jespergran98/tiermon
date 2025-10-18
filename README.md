@@ -54,3 +54,7 @@ These colors need to be included in the main.css, and referenced in style.css to
 ---
 
 This file is currently named "style.css" and located in the style/mainCSS folder. Split it up to multiple css files that handles different parts of the site into different css files. The header, hero and footer need their own files for example.
+
+---
+
+Update the visual design of this header and make it truly outstanding for my pokémon TCG Pocket website. Use the color palette from the main.css file, feel free to update the current dark and light colors and introduce new dark/ light colors (but not the pokémon branding colors or palette). Provide the updated main.css with updated and new improved dark and light mode colors. (Do not chnage the logo and tagline too much, sinze these already are optimized)
