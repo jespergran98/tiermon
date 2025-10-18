@@ -2,10 +2,15 @@
 const tooltipContent = {
   hbe: {
     title: 'Hierarchical Bayesian Estimation',
-    description: `This smart algorithm scans thousands of tournament matches to grasp the big-picture meta: what's a "normal" win rate? Using Bayesian stats, it sets a prior based on overall patterns, then updates each deck's ranking by blending this meta insight with its own wins, ties and losses. Decks with few games get gradually nudged toward the average for fairness, but standout performers still have a chance to rise. Battle-tested decks rely mostly on their solid stats. It auto-adjusts confidence intervals: super cautious in balanced metas where everyone's close, bolder when true power tiers emerge via adaptive variance scaling. Decks get rated typically from 0 to 100, but can exceed 100 in rare, wildly unbalanced metas. Result? Fair rankings that balance meta context with individual performance.`
+    description: `A sophisticated algorithm that analyzes tens of thousands of tournament matches to understand the meta landscape: "What does typical performance look like?" It then ranks each deck by intelligently blending two sources—what the broader meta shows AND what this specific deck's results demonstrate.
+
+The balancing mechanism is elegant: decks with limited matches are gently regularized toward the meta average for stability, yet truly exceptional performers can still break through and rank highly if their win rate is outstanding enough. Extensively-played decks rely almost purely on their own merit. The algorithm dynamically adapts to meta conditions—remaining conservative when decks cluster tightly, but allowing meaningful separation when clear power tiers emerge.
+
+Using Bayesian inference with Beta-Binomial distributions, it calculates meta-wide patterns (mean μ and variance σ²) as prior knowledge, then updates each deck's posterior as Beta(α + wins, β + losses) where ties counts as 0.5 wins and losses. Weight shifts based on evidence: n/(n + α + β). Final rankings use the lower confidence bound, rewarding battle-tested consistency while still recognizing breakout performers.
+
+Result: Context-aware rankings from 0-100+ that harmonize meta intelligence with individual performance, producing fair assessments even with incomplete data.`
   }
 };
-
 
 // Initialize tooltip functionality
 function initializeTooltips() {
