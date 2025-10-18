@@ -53,10 +53,12 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <h2>Discover the Best TCG pocket decks</h2>
-          <p>Explore live rankings of the best decks in TCG Pocket using advanced Hierarchical Bayesian Estimation. Our meta-aware system analyzes win rates and play volume from thousands of recent tournaments on play.limitlesstcg.com—delivering accurate insights into the top performers in today's evolving meta.</p>
+          <h2>Discover the Best TCG Pocket Decks</h2>
+          <p>Explore live rankings of the best decks in TCG Pocket using advanced <span class="info-trigger" data-tooltip="hbe">Hierarchical Bayesian Estimation</span>. Our meta-aware system analyzes win rates and play volume from thousands of recent tournaments on play.limitlesstcg.com—delivering accurate insights into the top performers in today's evolving meta.</p>
         </div>
       </div>
+      <!-- Tooltip -->
+      <div id="tooltip" class="tooltip" style="display: none;"></div>
     </section>
 
     <!-- Top Ranking Decks Section -->
@@ -86,5 +88,6 @@
   </footer>
 
   <script type="module" src="js/mainJS/main.js"></script>
+  <script type="module" src="js/hoverJS/algorithmInfo.js"></script>
 </body>
 </html>
