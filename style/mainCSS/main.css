@@ -1,5 +1,5 @@
 /* ============================================
-   POKÉMON TCG POCKET - MAIN STYLESHEET
+   POKÉMON TCG POCKET - MAIN STYLESHEET (MOBILE-OPTIMIZED)
    ============================================ */
 
 :root {
@@ -27,37 +27,23 @@
   --color-border-secondary-dark: #21262d;
 
   /* --- TCG POCKET ACCENT RAINBOW PALETTE (BALANCED PASTEL) --- */
-  /* Cyan */
   --accent-cyan: #a8e6f0;
-  /* Green */
   --accent-green: #a8f0d0;
-  /* Lime */
   --accent-lime: #d0f0a8;
-  /* Yellow */
   --accent-yellow: #f0f0a8;
-  /* Orange */
   --accent-orange: #f0d0a8;
-  /* Red */
   --accent-red: #f0a8b0;
-  /* Pink */
   --accent-pink: #f0a8d8;
-  /* Purple */
   --accent-purple: #d8a8f0;
-  /* Blue */
   --accent-blue: #a8c8f0;
-  /* Indigo */
   --accent-indigo: #a8d8f0;
 
   /* --- POKÉMON BRAND COLORS --- */
-  /* Primary Red */
   --pokemon-red-light: #ee1c24;
   --pokemon-red-dark: #a70d12;
-  /* Primary Blue */
   --pokemon-blue-light: #3663af;
   --pokemon-blue-dark: #222c5f; 
-  /* White */
   --pokemon-white: #ffffff;
-  /* Yellow */
   --pokemon-yellow: #ffde00;
 
   /* --- GRADIENT COLORS --- */
@@ -96,7 +82,7 @@
   --border-color: var(--color-border-light);
   --border-color-secondary: var(--color-border-secondary-light);
 
-  /* --- SPACING --- */
+  /* --- SPACING (MOBILE-OPTIMIZED) --- */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -104,7 +90,7 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
 
-  /* --- TYPOGRAPHY --- */
+  /* --- TYPOGRAPHY (MOBILE-OPTIMIZED) --- */
   --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-family-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
@@ -153,6 +139,24 @@
   --transition-slow: 300ms ease-in-out;
 }
 
+/* --- MOBILE RESPONSIVE SPACING OVERRIDES --- */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.25rem;
+    --spacing-2xl: 1.5rem;
+  }
+}
+
 /* --- DARK MODE --- */
 html[data-theme='dark'] {
   --bg-color: var(--color-bg-dark);
@@ -178,6 +182,11 @@ html[data-theme='dark'] {
 
 html {
   scroll-behavior: smooth;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  /* Better mobile text rendering */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -189,10 +198,15 @@ body {
   transition: color var(--transition-base), background-color var(--transition-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+  width: 100%;
+  /* Better touch scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ============================================
-   TYPOGRAPHY
+   TYPOGRAPHY (MOBILE-OPTIMIZED)
    ============================================ */
 
 h1,
@@ -204,26 +218,30 @@ h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-md);
+  /* Prevent text overflow */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 h1 {
-  font-size: var(--font-size-4xl);
+  font-size: clamp(1.75rem, 5vw, var(--font-size-4xl));
 }
 
 h2 {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.5rem, 4vw, var(--font-size-3xl));
 }
 
 h3 {
-  font-size: var(--font-size-2xl);
+  font-size: clamp(1.25rem, 3.5vw, var(--font-size-2xl));
 }
 
 h4 {
-  font-size: var(--font-size-xl);
+  font-size: clamp(1.125rem, 3vw, var(--font-size-xl));
 }
 
 h5 {
-  font-size: var(--font-size-lg);
+  font-size: clamp(1rem, 2.5vw, var(--font-size-lg));
 }
 
 h6 {
@@ -232,16 +250,28 @@ h6 {
 
 p {
   margin-bottom: var(--spacing-md);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
   color: var(--color-primary);
   text-decoration: none;
   transition: opacity var(--transition-fast);
+  /* Better tap targets on mobile */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
-a:hover {
+a:hover,
+a:focus {
   opacity: 0.8;
+}
+
+/* Better tap feedback on mobile */
+a:active {
+  opacity: 0.6;
 }
 
 code {
@@ -251,136 +281,8 @@ code {
   background-color: var(--surface-color-secondary);
   border-radius: var(--radius-md);
   color: var(--text-color-secondary);
-}
-
-/* --- ACCENT UTILITIES --- */
-.text-accent-cyan {
-  color: var(--accent-cyan);
-}
-
-.text-accent-green {
-  color: var(--accent-green);
-}
-
-.text-accent-lime {
-  color: var(--accent-lime);
-}
-
-.text-accent-yellow {
-  color: var(--accent-yellow);
-}
-
-.text-accent-orange {
-  color: var(--accent-orange);
-}
-
-.text-accent-red {
-  color: var(--accent-red);
-}
-
-.text-accent-pink {
-  color: var(--accent-pink);
-}
-
-.text-accent-purple {
-  color: var(--accent-purple);
-}
-
-.text-accent-blue {
-  color: var(--accent-blue);
-}
-
-.text-accent-indigo {
-  color: var(--accent-indigo);
-}
-
-.bg-accent-cyan {
-  background-color: var(--accent-cyan);
-}
-
-.bg-accent-green {
-  background-color: var(--accent-green);
-}
-
-.bg-accent-lime {
-  background-color: var(--accent-lime);
-}
-
-.bg-accent-yellow {
-  background-color: var(--accent-yellow);
-}
-
-.bg-accent-orange {
-  background-color: var(--accent-orange);
-}
-
-.bg-accent-red {
-  background-color: var(--accent-red);
-}
-
-.bg-accent-pink {
-  background-color: var(--accent-pink);
-}
-
-.bg-accent-purple {
-  background-color: var(--accent-purple);
-}
-
-.bg-accent-blue {
-  background-color: var(--accent-blue);
-}
-
-.bg-accent-indigo {
-  background-color: var(--accent-indigo);
-}
-
-/* --- POKÉMON BRAND COLOR UTILITIES --- */
-.text-pokemon-red-light {
-  color: var(--pokemon-red-light);
-}
-
-.text-pokemon-red-dark {
-  color: var(--pokemon-red-dark);
-}
-
-.text-pokemon-blue-light {
-  color: var(--pokemon-blue-light);
-}
-
-.text-pokemon-blue-dark {
-  color: var(--pokemon-blue-dark);
-}
-
-.bg-pokemon-red-light {
-  background-color: var(--pokemon-red-light);
-}
-
-.bg-pokemon-red-dark {
-  background-color: var(--pokemon-red-dark);
-}
-
-.bg-pokemon-blue-light {
-  background-color: var(--pokemon-blue-light);
-}
-
-.bg-pokemon-blue-dark {
-  background-color: var(--pokemon-blue-dark);
-}
-
-.border-pokemon-red-light {
-  border-color: var(--pokemon-red-light);
-}
-
-.border-pokemon-red-dark {
-  border-color: var(--pokemon-red-dark);
-}
-
-.border-pokemon-blue-light {
-  border-color: var(--pokemon-blue-light);
-}
-
-.border-pokemon-blue-dark {
-  border-color: var(--pokemon-blue-dark);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ============================================
@@ -394,16 +296,31 @@ code {
     var(--bg-color) 0%,
     var(--surface-color) 100%
   );
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* ============================================
-   UTILITY CLASSES
+   UTILITY CLASSES (MOBILE-OPTIMIZED)
    ============================================ */
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
 }
 
 .flex {
@@ -481,4 +398,105 @@ code {
 
 .opacity-75 {
   opacity: 0.75;
+}
+
+/* --- ACCENT UTILITIES --- */
+.text-accent-cyan { color: var(--accent-cyan); }
+.text-accent-green { color: var(--accent-green); }
+.text-accent-lime { color: var(--accent-lime); }
+.text-accent-yellow { color: var(--accent-yellow); }
+.text-accent-orange { color: var(--accent-orange); }
+.text-accent-red { color: var(--accent-red); }
+.text-accent-pink { color: var(--accent-pink); }
+.text-accent-purple { color: var(--accent-purple); }
+.text-accent-blue { color: var(--accent-blue); }
+.text-accent-indigo { color: var(--accent-indigo); }
+
+.bg-accent-cyan { background-color: var(--accent-cyan); }
+.bg-accent-green { background-color: var(--accent-green); }
+.bg-accent-lime { background-color: var(--accent-lime); }
+.bg-accent-yellow { background-color: var(--accent-yellow); }
+.bg-accent-orange { background-color: var(--accent-orange); }
+.bg-accent-red { background-color: var(--accent-red); }
+.bg-accent-pink { background-color: var(--accent-pink); }
+.bg-accent-purple { background-color: var(--accent-purple); }
+.bg-accent-blue { background-color: var(--accent-blue); }
+.bg-accent-indigo { background-color: var(--accent-indigo); }
+
+/* --- POKÉMON BRAND COLOR UTILITIES --- */
+.text-pokemon-red-light { color: var(--pokemon-red-light); }
+.text-pokemon-red-dark { color: var(--pokemon-red-dark); }
+.text-pokemon-blue-light { color: var(--pokemon-blue-light); }
+.text-pokemon-blue-dark { color: var(--pokemon-blue-dark); }
+
+.bg-pokemon-red-light { background-color: var(--pokemon-red-light); }
+.bg-pokemon-red-dark { background-color: var(--pokemon-red-dark); }
+.bg-pokemon-blue-light { background-color: var(--pokemon-blue-light); }
+.bg-pokemon-blue-dark { background-color: var(--pokemon-blue-dark); }
+
+.border-pokemon-red-light { border-color: var(--pokemon-red-light); }
+.border-pokemon-red-dark { border-color: var(--pokemon-red-dark); }
+.border-pokemon-blue-light { border-color: var(--pokemon-blue-light); }
+.border-pokemon-blue-dark { border-color: var(--pokemon-blue-dark); }
+
+/* ============================================
+   MOBILE-SPECIFIC IMPROVEMENTS
+   ============================================ */
+
+/* Improve tap targets */
+button,
+.btn,
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+/* Better focus states for mobile */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+/* Improve image responsiveness */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent zoom on input focus (iOS Safari) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* Better scrolling on mobile */
+@media (max-width: 768px) {
+  body {
+    scroll-padding-top: 80px;
+  }
+}
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

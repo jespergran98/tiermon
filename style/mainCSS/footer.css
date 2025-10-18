@@ -1,5 +1,5 @@
 /* ============================================
-   FOOTER
+   FOOTER - MOBILE-OPTIMIZED
    ============================================ */
 
 .footer {
@@ -10,10 +10,11 @@
   );
   border-top: 2px solid var(--accent-cyan);
   border-image: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan), var(--accent-indigo)) 1;
-  padding: var(--spacing-2xl) 0;
-  margin-top: var(--spacing-2xl);
+  padding: clamp(1.5rem, 4vw, var(--spacing-2xl)) 0;
+  margin-top: var(--spacing-xl);
   transition: all var(--transition-base);
   position: relative;
+  width: 100%;
 }
 
 .footer::before {
@@ -34,8 +35,96 @@
 }
 
 .footer .container {
-  min-height: 60px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 0 var(--spacing-md);
+}
+
+.footer .container > * {
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ============================================
+   TABLET RESPONSIVE (768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: clamp(1.25rem, 3.5vw, 1.75rem) 0;
+    margin-top: var(--spacing-lg);
+  }
+
+  .footer .container {
+    min-height: 45px;
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE (480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.25rem 0;
+    margin-top: var(--spacing-md);
+  }
+
+  .footer .container {
+    min-height: 40px;
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (375px)
+   ============================================ */
+
+@media (max-width: 375px) {
+  .footer {
+    padding: 1rem 0;
+  }
+
+  .footer .container {
+    min-height: 36px;
+    padding: 0 8px;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MODE OPTIMIZATION
+   ============================================ */
+
+@media (max-width: 768px) and (max-height: 500px) and (orientation: landscape) {
+  .footer {
+    padding: 1rem 0;
+    margin-top: var(--spacing-md);
+  }
+
+  .footer .container {
+    min-height: 36px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .footer {
+    page-break-inside: avoid;
+    border-top: 1px solid #000;
+  }
+
+  .footer::before {
+    display: none;
+  }
 }
