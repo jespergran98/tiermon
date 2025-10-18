@@ -1,175 +1,3 @@
-X = 100+ (Transcendent)
-S++ = 97 - 100 (Phenomenal)
-S+ = 94 - 97 (Elite)
-S = 91 - 94 (Excellent)
-A = 88 - 91 (Very Good)
-B = 84 - 88 (Good)
-C = 80 - 84 (Above Average)
-D = 75 - 80 (Average)
-E = 70 - 75 (Below Average)
-Unranked = Below 70 (Insufficient/Unqualified)
-
-name and catchphrase:
-
-tiermon - updates the top decks in Pokémon in real time
-
-tiermon: Gotta rank 'em all.
-
-tiermon: Gotta beat 'em all.
-
-The live tier list for the Pokémon TCG.
-
----
-
-Logo prompt:
-
-best:
-Create a high-resolution vector logo of the word "TiErMoN" in the iconic style of the official Pokémon logo, delivered as a PNG with a transparent background. The entire logo must fit perfectly within the image bounds. The lettering should use the characteristic bold, rounded, and playful font with a bright yellow fill, a thick blue outline, and a subtle 3D drop-shadow effect for depth. The arrangement of the letters is crucial: begin with a large capital 'T', with a smaller lowercase 'i' tucked directly beneath the right side of its horizontal bar. Following this, place a capital 'E' with a smaller lowercase 'r' nestled beside it, maintaining the bouncy and varied-size feel of the original. The final three letters, "M", "o", "N", should precisely replicate the style, capitalization (capital M, lowercase o, capital N), and energetic alignment of the "M o N" from the source logo.
-
-Create a high-resolution vector logo of the word "TiErMoN" in the iconic style of the official Pokémon logo, delivered as a PNG with a transparent background. The entire logo must fit perfectly within the image bounds. The lettering should use the characteristic bold, rounded, and playful font with a bright yellow fill, a thick blue outline, and a subtle 3D drop-shadow effect for depth. The arrangement of the letters is crucial: begin with a large capital 'T', with a smaller lowercase 'i' tucked directly beneath the right side of its horizontal bar. Following this, place a large 'e' (not capital, but large font size to look like the e from the original logo), with a smaller lowercase 'r' nestled beside it, maintaining the bouncy and varied-size feel of the original. The final three letters, "M", "o", "N", should precisely replicate the style, capitalization (capital M, lowercase o, capital N), and energetic alignment of the "M o N" from the source logo.
-
----
-
-Top tier list websites/ ranking sites:
-
-Blitz.gg league: https://blitz.gg/lol/tierlist
-
-mobalytics.gg: https://mobalytics.gg/lol/tier-list/top?igRole=TOP
-
-OP.GG: https://op.gg/lol/leaderboards/tier
-
----
-
-I'm making a tierlist website named "tiermon" (a wordplay on pokémon) that rates Pokémon decks. Create a HTML and CSS file that generates a header, main and footer. I already have a main.css, the html should import styling from the main.css, but also from a new css file named "style.css".
-
-I want a header with a Logo imported from assets/images/tiermonLogo.png in the header, with the text "Gotta rank em' all" underneath, the header contians the logo to the left, and "tier list", "decks", and "tournaments" on the right.
-
-Below the Header is a simple Hero, followed by a list of the top ranking decks (Keep it empty for now)
-
-Finally, a footer at the bottom, also left empty for now.
-
-I'm looking forward to expand this page in the future, importing deck info from APIs, be extremely professional with wording etc, making it easy to later on implement the additional code and features.
-
----
-
-Add new colors for the header tagline, and add these colors to the main.css. The styling is meant for buttons and very important elements around the page. The header tagline colors include:
-
-A white text saying "Gotta rank em' all" in a thick font.
-This text has a border in color #a70d12.
-The "Gotta rank em' all" text has a background color split in half, that is #ee1c24 on top half, and #a70d12 on the bottom half.
-The red background has a thin border in color #222c5f around the entire background.
-Around this is a thicker border, that is color #3663af on the top half and color #222c5f on the bottom half.
-
-These colors need to be included in the main.css, and referenced in style.css to fix the styling of the header tagline.
-
----
-
-This file is currently named "style.css" and located in the style/mainCSS folder. Split it up to multiple css files that handles different parts of the site into different css files. The header, hero and footer need their own files for example.
-
----
-
-Update the visual design of this header and make it truly outstanding for my pokémon TCG Pocket website. Use the color palette from the main.css file, feel free to update the current dark and light colors and introduce new dark/ light colors (but not the pokémon branding colors or palette). Provide the updated main.css with updated and new improved dark and light mode colors. (Do not chnage the logo and tagline too much, sinze these already are optimized)
-
----
-
-Card info:
-
-1. Rating (Deck Strength Score)
-(using Hierarchical Bayesian Estimation to rate the card between 0 and 100 based on win %, player count and more, will be the tier list and official rating of the card)
-
-2. Wins, Losses, Ties
-Display: Raw counts as W - L - T.
-Why display?: Provides transparency into the data foundation.
-Example (Suicune ex Greninja): 6,992 - 5,971 - 306.
-
-3. Win % and Adjusted Win Rate
-Calculations:
-Win % = (Wins / Total Matches) × 100.
-Adjusted Win Rate = [(Wins + 0.5 × Ties) / Total Matches] × 100.
-Why display?: Win % is straightforward; Adjusted fairly accounts for ties (common in TCG). Show side-by-side for easy comparison.
-Example (Suicune ex Greninja): Win % = 52.69% | Adjusted Win Rate = 53.85%.
-
-4. Matches Played
-Calculation: Wins + Losses + Ties.
-Why display?: Shows data volume for reliability (pairs well with Confidence Interval—see new stat below).
-Example (Suicune ex Greninja): 13,269
-
-5. Popularity Metrics: Count (Tournament Entries) and Share (% of Meta)
-Calculation:
-Count: Number of times the deck appeared in tournaments.
-Share = (Count / Total Entries Across All Decks) × 100.
-Why display?: Measures popularity; high Share indicates meta staple.
-Improvement: Calculate Total Entries dynamically from your dataset. Add a "Trend" arrow (↑/↓) based on change from previous period.
-Example (Suicune ex Greninja): Count = 2,466; Share = 19.35% (assuming total entries ~12,744 based on top 10 sums and shares).
-
-6. Average Matches per Entry
-Calculation: Total Matches / Count
-Why display?: Indicates deck longevity or success in tournaments (e.g., stronger decks play more games if tournaments have elimination brackets). Higher values suggest the deck advances further on average.
-Example (Suicune ex Greninja): 13,269 / 2,466 ≈ 5.38
-
-7. Meta impact
-Calculation: Win % × Share (or Adjusted Win Rate × Share for a variant)
-Why display?: Combines popularity (Share) with performance (Win %) to show "meta impact." Higher values highlight dominant decks that are both common and successful.
-Example (Suicune ex Greninja): 52.69 × 19.35 ≈ 1,019.67
-
----
-
-Deck	Count	Share	Score	Win %
-1		
-Suicune ex Greninja
-2466	19.35%	
-6992 - 5971 - 306
-52.69%
-2		
-Giratina ex Darkrai ex
-1448	11.36%	
-3980 - 3544 - 212
-51.45%
-3		
-Guzzlord ex
-803	6.30%	
-2124 - 1962 - 100
-50.74%
-4		
-Flareon ex Eevee ex
-573	4.50%	
-1544 - 1422 - 49
-51.21%
-5		
-Espeon ex Sylveon ex
-350	2.75%	
-880 - 832 - 32
-50.46%
-6		
-Darkrai ex Arceus ex
-263	2.06%	
-712 - 670 - 27
-50.53%
-7		
-Buzzwole ex Pheromosa
-256	2.01%	
-652 - 636 - 22
-49.77%
-8		
-Dragonite ex Dragonite
-214	1.68%	
-460 - 523 - 17
-46.00%
-9		
-Arceus ex Pichu
-210	1.65%	
-535 - 513 - 15
-50.33%
-10		
-Greninja Oricorio
-204	1.60%	
-577 - 458 - 46
-53.38%
-
----
-
-Overhaul the hero design with amazing modern and creative design for my pokémon TCG Pocket deck tier list website.
-
 -----------------------------------------------------------------------------------------------------------------------------------
 
 PROMPT FOR NEW DESCRIPTIONS:
@@ -311,3 +139,85 @@ meta_impact_top_pctile = 90 (meta-impact leaders in top 10% by meta_impact)
 Provide new and improved descriptions that are engaging, fun and feel personal for different cards. Do NOT hardcode anything, it should work regardless if theree are thousands of entries or less than 100%. For example do not say "if it's played more than 500 times", instead say "if it's top 10% in matched played" for example. Or if it's in the top or bottom % within different metrics.
 
 --------------------------------------------------------------------------------------
+
+A. Absolute dominator
+
+Condition (recommended): popularity_rank == 1 AND popularity_ratio >= top_pop_ratio_threshold AND adjusted_win_rate >= meta_mean + meta_dominance_std_multiplier * meta_std
+Template:
+"{deck_name} is dominating the meta right now — it's the biggest presence (≈{share}% of entries) and holds a dependable {adjusted_win_rate}% adjusted win rate, making it the deck to beat (rating: {rating}, {tier})."
+Optional short stat line: W-L-T = {W}-{L}-{T} | Matches = {matches}
+
+B. Meta staple
+
+Condition: popularity_ratio >= staple_ratio_threshold AND rating >= 84
+Template:
+"{deck_name} is a meta staple — played in about {share}% of events and sitting at {rating} ({tier}). Its {adjusted_win_rate}% adjusted win rate keeps it reliable on ladder and in brackets."
+Variant: mention {avg_matches_per_entry} optionally.
+
+C. Underplayed elite (hidden gem)
+
+Condition: popularity_ratio <= underplayed_ratio_threshold AND rating >= 91
+Template:
+"Even with fewer players jumping in ({count} entries — ~{popularity_ratio:.1%} of the busiest archetype), {deck_name} stands out in {tier} tier at {rating}, thanks to an impressive {adjusted_win_rate}% adjusted win rate."
+Variant: add emoji 🕵️‍♀️ for UI.
+
+D. Breakout performer
+
+Condition: rating >= 91 AND adjusted_win_rate >= meta_mean + meta_breakout_std_multiplier*meta_std AND matches_pctile > matches_low_pctile
+Template:
+"{deck_name} is looking like a breakout: {rating} ({tier}) with {adjusted_win_rate}% adjusted win rate — the meta is starting to take notice."
+Optional: include {meta_impact} if high.
+
+E. High-confidence consistent
+
+Condition: matches_pctile >= matches_high_pctile AND rating >= 84 AND CI_width <= median_CI_width
+Template:
+"{deck_name} is quietly consistent: {W}-{L}-{T} across {matches} games, {adjusted_win_rate}% adjusted win rate and a steady {rating} ({tier}) — dependable and battle-tested."
+
+F. Volatile / High-variance (promising but small sample)
+
+Condition: rating >= 84 AND matches_pctile <= matches_low_pctile OR CI_width very wide
+Template:
+"{deck_name} shows upside ({rating}, {tier}) with a {adjusted_win_rate}% adjusted win rate, but the sample is small ({matches} games) — promising, but read the confidence carefully."
+
+G. Meta impact leader
+
+Condition: meta_impact >= meta_impact_percentile_threshold (e.g., in top 10%), and popularity_ratio not tiny (e.g., >= 0.05)
+Template:
+"{deck_name} shapes the meta — widely played ({share}% of entries) and successful ({adjusted_win_rate}% adjusted win rate), giving it a major meta-impact (rating: {rating}, {tier})."
+
+H. Newcomer / Rising
+
+Condition: trend_arrow == '↑' AND recent growth percentile high AND popularity_ratio still low (e.g., ≤ 0.25)
+Template:
+"{deck_name} is on the rise {trend_arrow} — recent events show growing adoption and a {adjusted_win_rate}% adjusted win rate. Keep an eye on this one."
+
+I. Fading / Declining
+
+Condition: trend_arrow == '↓' AND drop in recent share vs previous period significant (use relative drop %)
+Template:
+"{deck_name} is cooling off {trend_arrow} — still rated {rating} ({tier}), but entries and matches have dipped recently. Could be a meta pivot."
+
+J. Low-sample uncertain
+
+Condition: matches_pctile <= matches_low_pctile AND popularity_ratio small — especially when rating is near boundary
+Template:
+"{deck_name} has limited data ({matches} matches). The model gives it {rating} ({tier}), but confidence is low — more tournaments will clarify its true power."
+
+K. Unranked / Insufficient
+
+Condition: rating < 70
+Template:
+"{deck_name} is currently unranked (rating {rating}) — it hasn't yet shown consistent results. Worth revisiting if participation or win rate improves."
+
+L. Tight-cluster conservative language
+
+Condition: meta_std very small (meta tightly clustered) AND deck sits near median rating
+Template:
+"{deck_name} sits at {rating} ({tier}) in a tightly packed meta — small edges matter here. Its {adjusted_win_rate}% adjusted win rate keeps it competitive, but margins are thin."
+
+M. Default fallback
+
+Condition: none of the above matched
+Template:
+"{deck_name} sits comfortably in {tier}-tier at {rating}, with a {adjusted_win_rate}% adjusted win rate across its matches ({W}-{L}-{T})."

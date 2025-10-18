@@ -1,5 +1,5 @@
 /* ============================================
-   HEADER - MOBILE-OPTIMIZED DESIGN
+   HEADER - MOBILE-FIRST DESIGN
    ============================================ */
 
 .header {
@@ -15,6 +15,7 @@
   transition: all var(--transition-base);
   backdrop-filter: blur(24px);
   width: 100%;
+  overflow-x: hidden;
 }
 
 html[data-theme='light'] .header {
@@ -43,46 +44,29 @@ html[data-theme='dark'] .header {
     inset 0 -1px 0 0 rgba(168, 230, 240, 0.08);
 }
 
-.header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-cyan) 0%,
-    var(--accent-indigo) 16.67%,
-    var(--accent-blue) 33.33%,
-    var(--accent-purple) 50%,
-    var(--accent-pink) 66.67%,
-    var(--accent-red) 83.33%,
-    var(--accent-orange) 100%
-  );
-  opacity: 0.8;
-}
+
 
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-sm);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-md);
-  min-height: 60px;
+  min-height: 56px;
+  width: 100%;
 }
 
 /* ============================================
-   LOGO SECTION - MOBILE OPTIMIZED
+   LOGO SECTION
    ============================================ */
 
 .header-logo-section {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
+  position: relative;
   flex-shrink: 0;
 }
 
@@ -90,12 +74,16 @@ html[data-theme='dark'] .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 0;
+  position: relative;
+  padding: 0;
+  border-radius: 0;
 }
 
 .header-logo {
-  width: 110px;
+  width: 100px;
   height: auto;
+  max-height: 40px;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 }
@@ -105,74 +93,15 @@ html[data-theme='dark'] .header-logo {
 }
 
 /* ============================================
-   TAGLINE - MOBILE OPTIMIZED
+   TAGLINE
    ============================================ */
 
 .header-tagline {
-  margin: 0;
-  padding: 3px 8px;
-  font-size: 0.5rem;
-  font-weight: var(--font-weight-black);
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--pokemon-white);
-  text-shadow: 
-    -1px -1px 0 var(--pokemon-red-dark),
-    1px -1px 0 var(--pokemon-red-dark),
-    -1px 1px 0 var(--pokemon-red-dark),
-    1px 1px 0 var(--pokemon-red-dark),
-    0 0 3px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(
-    180deg,
-    var(--pokemon-red-light) 0%,
-    var(--pokemon-red-light) 48%,
-    var(--pokemon-red-dark) 52%,
-    var(--pokemon-red-dark) 100%
-  );
-  box-shadow: 
-    inset 0 0 0 2px var(--pokemon-blue-dark),
-    0 2px 6px rgba(0, 0, 0, 0.3);
-  border-radius: var(--radius-sm);
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.header-tagline::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(
-    180deg,
-    var(--pokemon-blue-light) 0%,
-    var(--pokemon-blue-light) 48%,
-    var(--pokemon-blue-dark) 52%,
-    var(--pokemon-blue-dark) 100%
-  );
-  border-radius: var(--radius-sm);
-  z-index: -1;
-}
-
-.header-tagline::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0) 45%,
-    rgba(0, 0, 0, 0) 55%,
-    rgba(0, 0, 0, 0.15) 100%
-  );
-  border-radius: var(--radius-sm);
-  pointer-events: none;
+  display: none;
 }
 
 /* ============================================
-   HEADER CONTROLS - MOBILE OPTIMIZED
+   HEADER CONTROLS
    ============================================ */
 
 .header-controls {
@@ -183,78 +112,41 @@ html[data-theme='dark'] .header-logo {
 }
 
 /* ============================================
-   NAVIGATION - MOBILE OPTIMIZED
+   NAVIGATION
    ============================================ */
 
+.header-nav {
+  display: none;
+}
+
 .nav-list {
-  display: flex;
+  display: none;
   list-style: none;
-  gap: 4px;
+  gap: var(--spacing-sm);
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  position: relative;
-  font-weight: var(--font-weight-semibold);
-  font-size: 0.8rem;
-  color: var(--text-color);
-  padding: 8px 10px;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  touch-action: manipulation;
+  display: none;
 }
 
 .nav-link::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--accent-cyan) 0%,
-    var(--accent-indigo) 50%,
-    var(--accent-purple) 100%
-  );
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-  border-radius: var(--radius-md);
-  z-index: -1;
+  display: none;
 }
 
-html[data-theme='light'] .nav-link {
-  color: var(--color-text-light);
-}
-
-html[data-theme='light'] .nav-link:active {
-  color: var(--pokemon-blue-dark);
-  background: rgba(168, 216, 240, 0.15);
-}
-
-html[data-theme='dark'] .nav-link {
-  color: var(--color-text-dark);
-}
-
-html[data-theme='dark'] .nav-link:active {
-  color: var(--accent-cyan);
-  background: rgba(168, 230, 240, 0.12);
-}
-
-.nav-link:active::before {
-  opacity: 0.15;
+.nav-link::after {
+  display: none;
 }
 
 /* ============================================
-   THEME TOGGLE - MOBILE OPTIMIZED
+   THEME TOGGLE
    ============================================ */
 
 .theme-toggle {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border: none;
   background: var(--surface-color-secondary);
   border-radius: var(--radius-md);
@@ -283,13 +175,7 @@ html[data-theme='dark'] .nav-link:active {
 
 .theme-toggle:active {
   transform: scale(0.95);
-  box-shadow: 
-    0 4px 12px -2px rgba(0, 0, 0, 0.15),
-    0 0 16px rgba(168, 230, 240, 0.25);
-}
-
-.theme-toggle:active::before {
-  opacity: 0.2;
+  transition: all var(--transition-base);
 }
 
 .theme-icon {
@@ -303,7 +189,7 @@ html[data-theme='dark'] .nav-link:active {
 
 .theme-toggle:active .theme-icon {
   color: var(--accent-cyan);
-  transform: rotate(15deg);
+  transform: rotate(15deg) scale(1.1);
 }
 
 html[data-theme='dark'] .theme-toggle:active .theme-icon {
@@ -314,176 +200,255 @@ html[data-theme='dark'] .theme-toggle:active .theme-icon {
    TABLET RESPONSIVE (768px)
    ============================================ */
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .header {
-    padding: var(--spacing-xs) 0;
+    padding: var(--spacing-md) 0;
   }
 
   .header-container {
-    padding: 0 var(--spacing-sm);
-    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-lg);
+    gap: var(--spacing-xl);
+    min-height: 64px;
   }
 
   .header-logo {
-    width: 100px;
-  }
-
-  .header-tagline {
-    font-size: 0.45rem;
-    padding: 3px 6px;
-    letter-spacing: 0.5px;
-  }
-
-  .nav-link {
-    font-size: 0.75rem;
-    padding: 6px 8px;
-  }
-
-  .theme-toggle {
-    width: 42px;
-    height: 42px;
-  }
-
-  .theme-icon {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-/* ============================================
-   MOBILE RESPONSIVE (480px and below)
-   ============================================ */
-
-@media (max-width: 480px) {
-  .header {
-    padding: 6px 0;
-  }
-
-  .header-container {
-    padding: 0 var(--spacing-sm);
-    gap: 8px;
-    min-height: 54px;
-    flex-wrap: nowrap;
-  }
-
-  .header-logo-section {
-    gap: 3px;
-  }
-
-  .header-logo {
-    width: 90px;
-  }
-
-  .header-tagline {
-    font-size: 0.4rem;
-    padding: 2px 5px;
-    letter-spacing: 0.4px;
-  }
-
-  .header-controls {
-    gap: 6px;
-    flex: 1;
-    justify-content: flex-end;
+    width: 120px;
+    max-height: 48px;
   }
 
   .header-nav {
-    flex: 0 1 auto;
+    display: flex;
   }
 
   .nav-list {
-    gap: 3px;
+    display: flex;
   }
 
   .nav-link {
-    font-size: 0.7rem;
-    padding: 6px 7px;
-    min-height: 40px;
+    display: inline-block;
+    position: relative;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--accent-cyan) 0%,
+      var(--accent-indigo) 50%,
+      var(--accent-purple) 100%
+    );
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    border-radius: var(--radius-md);
+    z-index: -1;
+    display: block;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--accent-cyan) 20%,
+      var(--accent-indigo) 50%,
+      var(--accent-purple) 80%,
+      transparent 100%
+    );
+    transform: translateX(-50%);
+    transition: width var(--transition-base);
+    border-radius: var(--radius-full);
+    display: block;
+  }
+
+  html[data-theme='light'] .nav-link {
+    color: var(--color-text-light);
+  }
+
+  html[data-theme='light'] .nav-link:hover {
+    color: var(--pokemon-blue-dark);
+    background: rgba(168, 216, 240, 0.1);
+  }
+
+  html[data-theme='dark'] .nav-link {
+    color: var(--color-text-dark);
+  }
+
+  html[data-theme='dark'] .nav-link:hover {
+    color: var(--accent-cyan);
+    background: rgba(168, 230, 240, 0.08);
+  }
+
+  .nav-link:hover::before {
+    opacity: 0.12;
+  }
+
+  .nav-link:hover::after {
+    width: calc(100% - 2rem);
+  }
+
+  .nav-link:active {
+    transform: scale(0.98);
   }
 
   .theme-toggle {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
-  .theme-icon {
-    width: 17px;
-    height: 17px;
+  .theme-toggle:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+      0 8px 16px -4px rgba(0, 0, 0, 0.15),
+      0 0 24px rgba(168, 230, 240, 0.3);
+  }
+
+  html[data-theme='light'] .theme-toggle:hover {
+    box-shadow: 
+      0 8px 16px -4px rgba(0, 0, 0, 0.1),
+      0 0 24px rgba(168, 216, 240, 0.4);
+  }
+
+  .theme-toggle:hover::before {
+    opacity: 0.15;
+  }
+
+  .theme-toggle:hover .theme-icon {
+    color: var(--accent-cyan);
+    transform: rotate(15deg) scale(1.1);
+  }
+
+  html[data-theme='dark'] .theme-toggle:hover .theme-icon {
+    color: var(--accent-indigo);
+  }
+
+  .header-tagline {
+    display: inline-block;
+    margin: 0;
+    padding: 4px 10px;
+    font-size: 0.5rem;
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--pokemon-white);
+    text-shadow: 
+      -1.5px -1.5px 0 var(--pokemon-red-dark),
+      1.5px -1.5px 0 var(--pokemon-red-dark),
+      -1.5px 1.5px 0 var(--pokemon-red-dark),
+      1.5px 1.5px 0 var(--pokemon-red-dark),
+      0 0 4px rgba(0, 0, 0, 0.6),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(
+      180deg,
+      var(--pokemon-red-light) 0%,
+      var(--pokemon-red-light) 48%,
+      var(--pokemon-red-dark) 52%,
+      var(--pokemon-red-dark) 100%
+    );
+    box-shadow: 
+      inset 0 0 0 2px var(--pokemon-blue-dark),
+      0 3px 8px rgba(0, 0, 0, 0.3),
+      0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-sm);
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .header-tagline::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(
+      180deg,
+      var(--pokemon-blue-light) 0%,
+      var(--pokemon-blue-light) 48%,
+      var(--pokemon-blue-dark) 52%,
+      var(--pokemon-blue-dark) 100%
+    );
+    border-radius: var(--radius-sm);
+    z-index: -1;
+  }
+
+  .header-tagline::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 45%,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+    border-radius: var(--radius-sm);
+    pointer-events: none;
   }
 }
 
 /* ============================================
-   SMALL MOBILE (375px and below)
+   DESKTOP RESPONSIVE (1024px+)
    ============================================ */
 
-@media (max-width: 375px) {
+@media (min-width: 1024px) {
   .header-container {
-    padding: 0 8px;
-    gap: 6px;
-    min-height: 50px;
+    gap: var(--spacing-xl);
   }
 
   .header-logo {
-    width: 80px;
+    width: 144px;
+    max-height: 56px;
   }
 
-  .header-tagline {
-    font-size: 0.38rem;
-    padding: 2px 4px;
-    letter-spacing: 0.3px;
+  .header-controls {
+    gap: var(--spacing-xl);
   }
 
   .nav-list {
-    gap: 2px;
+    gap: var(--spacing-md);
   }
 
   .nav-link {
-    font-size: 0.65rem;
-    padding: 5px 6px;
-    min-height: 38px;
-  }
-
-  .theme-toggle {
-    width: 38px;
-    height: 38px;
-  }
-
-  .theme-icon {
-    width: 16px;
-    height: 16px;
+    padding: var(--spacing-sm) var(--spacing-lg);
   }
 }
 
 /* ============================================
-   LANDSCAPE MODE OPTIMIZATION
+   ANIMATION ENHANCEMENTS
    ============================================ */
 
-@media (max-width: 768px) and (max-height: 500px) and (orientation: landscape) {
-  .header {
-    padding: 4px 0;
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
   }
-
-  .header-container {
-    min-height: 48px;
+  50% {
+    background-position: 100% 50%;
   }
-
-  .header-logo {
-    width: 85px;
+  100% {
+    background-position: 0% 50%;
   }
+}
 
-  .header-tagline {
-    font-size: 0.4rem;
-    padding: 2px 5px;
-  }
-
-  .nav-link {
-    font-size: 0.7rem;
-    padding: 5px 7px;
-    min-height: 38px;
-  }
-
-  .theme-toggle {
-    width: 38px;
-    height: 38px;
+@media (min-width: 768px) {
+  .nav-link:hover::before {
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
   }
 }
 
@@ -491,42 +456,7 @@ html[data-theme='dark'] .theme-toggle:active .theme-icon {
    ACCESSIBILITY ENHANCEMENTS
    ============================================ */
 
-.header-logo:focus-visible,
-.nav-link:focus-visible,
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--accent-cyan);
-  outline-offset: 2px;
-}
 
-html[data-theme='light'] .header-logo:focus-visible,
-html[data-theme='light'] .nav-link:focus-visible,
-html[data-theme='light'] .theme-toggle:focus-visible {
-  outline-color: var(--accent-indigo);
-}
-
-/* Touch feedback improvements */
-@media (hover: none) and (pointer: coarse) {
-  .nav-link:hover::before {
-    opacity: 0;
-  }
-
-  .theme-toggle:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .theme-toggle:hover::before {
-    opacity: 0;
-  }
-
-  .theme-toggle:hover .theme-icon {
-    transform: none;
-  }
-}
-
-/* ============================================
-   REDUCE MOTION
-   ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
   .header,
@@ -534,9 +464,7 @@ html[data-theme='light'] .theme-toggle:focus-visible {
   .header-tagline,
   .nav-link,
   .theme-toggle,
-  .theme-icon,
-  .nav-link::before,
-  .theme-toggle::before {
+  .theme-icon {
     transition: none;
     animation: none;
   }
