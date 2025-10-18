@@ -1,0 +1,41 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: linear-gradient(
+    180deg,
+    var(--surface-color) 0%,
+    var(--surface-color-secondary) 100%
+  );
+  border-top: 2px solid var(--accent-cyan);
+  border-image: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan), var(--accent-indigo)) 1;
+  padding: var(--spacing-2xl) 0;
+  margin-top: var(--spacing-2xl);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-purple),
+    var(--accent-cyan),
+    var(--accent-indigo),
+    transparent
+  );
+}
+
+.footer .container {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

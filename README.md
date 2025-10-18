@@ -39,7 +39,7 @@ Finally, a footer at the bottom, also left empty for now.
 
 I'm looking forward to expand this page in the future, importing deck info from APIs, be extremely professional with wording etc, making it easy to later on implement the additional code and features.
 
---
+---
 
 Add new colors for the header tagline, and add these colors to the main.css. The styling is meant for buttons and very important elements around the page. The header tagline colors include:
 
@@ -50,3 +50,7 @@ The red background has a thin border in color #222c5f around the entire backgrou
 Around this is a thicker border, that is color #3663af on the top half and color #222c5f on the bottom half.
 
 These colors need to be included in the main.css, and referenced in style.css to fix the styling of the header tagline.
+
+---
+
+This file is currently named "style.css" and located in the style/mainCSS folder. Split it up to multiple css files that handles different parts of the site into different css files. The header, hero and footer need their own files for example.
